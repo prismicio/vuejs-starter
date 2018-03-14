@@ -11,7 +11,7 @@
 <script>
 import Prismic from 'prismic-javascript';
 import PrismicDOM from 'prismic-dom';
-import PrismicConfig from '@/prismic-config';
+import PrismicConfig from '@/prismic/config';
 
 export default {
   name: 'Page',
