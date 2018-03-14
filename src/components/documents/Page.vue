@@ -9,44 +9,42 @@
 </template>
 
 <script>
-import Prismic from 'prismic-javascript';
-import PrismicDOM from 'prismic-dom';
-import PrismicConfig from '@/prismic/config';
+import prismicConfig from '@/prismic/config';
+import linkResolver from '@/prismic/link-resolver';
 
 export default {
   name: 'Page',
   data () {
     return {
-      title: '',
-      richText: '',
+      title: null,
+      richText: null,
       image: {
-        url: '',
-        alt: ''
+        url: null,
+        alt: null
       }
     }
   },
   methods: {
-    fillContent () {
-      Prismic.getApi(PrismicConfig.apiEndpoint).then(function (api) {
+    getDocumentContent () {
+      this.$prismic.getApi(prismicConfig.apiEndpoint).then(function (api) {
         return api.getByUID('page', 'about');
       }).then((document) => {
-        this.title = PrismicDOM.RichText.asText(document.data.title);
-        this.richText = PrismicDOM.RichText.asHtml(document.data.rich_text);
+        this.title = this.$prismicDOM.RichText.asText(document.data.title);
+        this.richText = this.$prismicDOM.RichText.asHtml(document.data.rich_text, linkResolver);
         this.image = {
           url: document.data.image.url,
           alt: document.data.image.alt
         };
       }, function (err) {
         console.error('Something went wrong:', err);
-      })
+      });
     }
   },
   beforeMount () {
-    this.fillContent()
+    this.getDocumentContent();
   }
 };
 </script>
 
 <style scoped>
-
 </style>

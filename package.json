@@ -1,6 +1,6 @@
 {
   "name": "prismic-vuejs-starter",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Vue.js starter project for querying content from Prismic",
   "author": "Prismic",
   "private": true,

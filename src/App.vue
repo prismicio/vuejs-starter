@@ -16,6 +16,8 @@ export default {
 </script>
 
 <style>
+@import "./assets/resetr.css";
+
 #app {
   color: #333;
 }
