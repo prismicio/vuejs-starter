@@ -13,7 +13,7 @@ import prismicConfig from '@/prismic/config';
 import linkResolver from '@/prismic/link-resolver';
 
 export default {
-  name: 'Page',
+  name: 'Homepage',
   data () {
     return {
       title: null,
@@ -27,7 +27,7 @@ export default {
   methods: {
     getDocumentContent () {
       this.$prismic.getApi(prismicConfig.apiEndpoint).then((api) => {
-        return api.getByUID('page', this.$route.params.uid);
+        return api.getSingle('homepage');
       }).then((document) => {
         this.title = this.$prismicDOM.RichText.asText(document.data.title);
         this.richText = this.$prismicDOM.RichText.asHtml(document.data.rich_text, linkResolver);
@@ -38,14 +38,10 @@ export default {
       }, (err) => {
         console.error('Something went wrong:', err);
       });
-    }
+    },
   },
   beforeMount () {
     this.getDocumentContent();
-  },
-  beforeRouteUpdate (to, from, next) {
-    this.getDocumentContent();
-    next();
   }
 };
 </script>
