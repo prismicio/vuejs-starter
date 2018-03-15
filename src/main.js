@@ -13,6 +13,7 @@ Vue.use(Prismic);
 
 /* eslint-disable no-new */
 const router = new VueRouter({
+  mode: 'history',
   routes
 });
 
