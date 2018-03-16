@@ -42,10 +42,6 @@ export default {
   },
   beforeMount () {
     this.getDocumentContent();
-  },
-  beforeRouteUpdate (to, from, next) {
-    this.getDocumentContent();
-    next();
   }
 };
 </script>
