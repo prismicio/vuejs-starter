@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h1>{{ title }}</h1>
-    <div v-html="richText"/>
+    <h1>{{ content.title }}</h1>
+    <div v-html="content.richText"/>
     <div>
-      <img :src="image.url" :alt="image.alt">
+      <img :src="content.image.url" :alt="content.image.alt">
     </div>
   </div>
 </template>
@@ -16,11 +16,13 @@ export default {
   name: 'Page',
   data () {
     return {
-      title: null,
-      richText: null,
-      image: {
-        url: null,
-        alt: null
+      content: {
+        title: '',
+        richText: '',
+        image: {
+          url: '',
+          alt: ''
+        }
       }
     }
   },
@@ -29,9 +31,9 @@ export default {
       this.$prismic.getApi(prismicConfig.apiEndpoint).then((api) => {
         return api.getByUID('page', this.$route.params.uid);
       }).then((document) => {
-        this.title = this.$prismicDOM.RichText.asText(document.data.title);
-        this.richText = this.$prismicDOM.RichText.asHtml(document.data.rich_text, linkResolver);
-        this.image = {
+        this.content.title = this.$prismicDOM.RichText.asText(document.data.title);
+        this.content.richText = this.$prismicDOM.RichText.asHtml(document.data.rich_text, linkResolver);
+        this.content.image = {
           url: document.data.image.url,
           alt: document.data.image.alt
         };
@@ -40,7 +42,7 @@ export default {
       });
     }
   },
-  beforeMount () {
+  created () {
     this.getDocumentContent();
   }
 };
