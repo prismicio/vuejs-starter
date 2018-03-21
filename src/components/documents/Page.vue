@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :data-wio-id="content.id">
     <h1>{{ content.title }}</h1>
     <div v-html="content.richText"/>
     <div>
@@ -17,6 +17,7 @@ export default {
   data () {
     return {
       content: {
+        id: '',
         title: '',
         richText: '',
         image: {
@@ -27,10 +28,11 @@ export default {
     }
   },
   methods: {
-    getDocumentContent () {
+    getContent () {
       this.$prismic.getApi(prismicConfig.apiEndpoint).then((api) => {
         return api.getByUID('page', this.$route.params.uid);
       }).then((document) => {
+        this.content.id = document.id;
         this.content.title = this.$prismicDOM.RichText.asText(document.data.title);
         this.content.richText = this.$prismicDOM.RichText.asHtml(document.data.rich_text, linkResolver);
         this.content.image = {
@@ -43,7 +45,7 @@ export default {
     }
   },
   created () {
-    this.getDocumentContent();
+    this.getContent();
   }
 };
 </script>
