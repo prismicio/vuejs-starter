@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import prismicConfig from '@/prismic/config';
 import linkResolver from '@/prismic/link-resolver';
 
 export default {
@@ -29,7 +28,7 @@ export default {
   },
   methods: {
     getContent () {
-      this.$prismic.getApi(prismicConfig.endpoint).then((api) => {
+      this.$prismic.getApi(window.prismic.endpoint).then((api) => {
         return api.getByUID('page', this.$route.params.uid);
       }).then((document) => {
         this.content.id = document.id;
