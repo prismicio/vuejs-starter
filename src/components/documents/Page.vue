@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     getContent () {
-      this.$prismic.getApi(prismicConfig.apiEndpoint).then((api) => {
+      this.$prismic.getApi(prismicConfig.endpoint).then((api) => {
         return api.getByUID('page', this.$route.params.uid);
       }).then((document) => {
         this.content.id = document.id;

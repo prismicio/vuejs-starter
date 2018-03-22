@@ -12,6 +12,7 @@ export default {
 
 <style>
 @import "./assets/resetr.css";
+@import "./assets/prismic-edit-button.css";
 
 #app {
   color: #333;

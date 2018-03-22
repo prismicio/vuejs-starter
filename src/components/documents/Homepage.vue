@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     getContent () {
-      this.$prismic.getApi(prismicConfig.apiEndpoint).then((api) => {
+      this.$prismic.getApi(prismicConfig.endpoint).then((api) => {
         return api.getSingle('homepage');
       }).then((document) => {
         this.content.id = document.id;
@@ -42,7 +42,7 @@ export default {
       }, (err) => {
         console.error('Something went wrong:', err);
       });
-    },
+    }
   },
   created () {
     this.getContent();
