@@ -31,6 +31,10 @@ export default {
       this.$prismic.getApi(window.prismic.endpoint).then((api) => {
         return api.getSingle('homepage');
       }).then((document) => {
+        if (!document) {
+          this.$router.push({ name: 'not-found' });
+          return ;
+        }
         this.content.id = document.id;
         this.content.title = this.$prismicDOM.RichText.asText(document.data.title);
         this.content.richText = this.$prismicDOM.RichText.asHtml(document.data.rich_text, linkResolver);

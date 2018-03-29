@@ -11,6 +11,11 @@ export default new Router({
   mode: 'history',
   routes: [
     {
+      path: '/not-found',
+      name: 'not-found',
+      component: NotFound
+    },
+    {
       path: '/preview',
       name: 'preview',
       component: Preview
@@ -27,8 +32,7 @@ export default new Router({
     },
     {
       path: '*',
-      name: 'not-found',
-      component: NotFound
+      redirect: { name: 'not-found' }
     }
   ]
 });
