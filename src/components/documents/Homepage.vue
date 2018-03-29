@@ -9,8 +9,6 @@
 </template>
 
 <script>
-import linkResolver from '@/prismic/link-resolver';
-
 export default {
   name: 'Homepage',
   data () {
@@ -37,7 +35,7 @@ export default {
         }
         this.content.id = document.id;
         this.content.title = this.$prismicDOM.RichText.asText(document.data.title);
-        this.content.richText = this.$prismicDOM.RichText.asHtml(document.data.rich_text, linkResolver);
+        this.content.richText = this.$prismicDOM.RichText.asHtml(document.data.rich_text, this.$linkResolver);
         this.content.image = {
           url: document.data.image.url,
           alt: document.data.image.alt
