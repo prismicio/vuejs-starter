@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     getContent () {
-      this.$prismic.getApi(window.prismic.endpoint).then((api) => {
+      this.$prismicGetApi.then((api) => {
         return api.getSingle('homepage');
       }).then((document) => {
         if (!document) {
