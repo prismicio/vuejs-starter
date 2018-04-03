@@ -1,8 +1,8 @@
 <template>
   <section>
-    <p>{{ catchphrase }}</p>
+    <p>{{ primary.catchphrase }}</p>
     <div>
-      <a :href="ctaUrl">{{ ctaText }}</a>
+      <a :href="primary.ctaUrl">{{ primary.ctaText }}</a>
     </div>
   </section>
 </template>
@@ -12,14 +12,12 @@ export default {
   name: 'BannerCta',
   props: ['slice'],
   computed: {
-    catchphrase () {
-      return this.$prismicDOM.RichText.asText(this.slice.primary.catchphrase);
-    },
-    ctaUrl () {
-      return this.$prismicDOM.Link.url(this.slice.primary.cta_link);
-    },
-    ctaText () {
-      return this.$prismicDOM.RichText.asText(this.slice.primary.cta_text);
+    primary () {
+      return {
+        catchphrase: this.$prismicDOM.RichText.asText(this.slice.primary.catchphrase),
+        ctaUrl: this.$prismicDOM.Link.url(this.slice.primary.cta_link),
+        ctaText: this.$prismicDOM.RichText.asText(this.slice.primary.cta_text)
+      };
     }
   }
 };

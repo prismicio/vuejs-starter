@@ -1,9 +1,11 @@
 <template>
   <section>
-    <p>{{ heading }}</p>
+    <p>{{ primary.heading }}</p>
     <div>
       <div v-for="(item, index) in items" :key="'item_' + index">
-        <img :src="item.icon.url" :alt="item.icon.alt">
+        <div>
+          <img :src="item.icon.url" :alt="item.icon.alt">
+        </div>
         <p>{{ item.heading }}</p>
         <p>{{ item.description }}</p>
       </div>
@@ -16,13 +18,15 @@ export default {
   name: 'Gains',
   props: ['slice'],
   computed: {
-    heading () {
-      return this.$prismicDOM.RichText.asText(this.slice.primary.heading);
+    primary () {
+      return {
+        heading: this.$prismicDOM.RichText.asText(this.slice.primary.heading)
+      };
     },
     items () {
-      let results = [];
+      const results = [];
 
-      for (let item of this.slice.items) {
+      for (const item of this.slice.items) {
         results.push({
           icon: {
             url: item.icon.url,
