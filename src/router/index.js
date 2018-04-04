@@ -1,9 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import NotFound from '@/components/NotFound';
 import Preview from '@/components/Preview';
 import Homepage from '@/components/documents/Homepage';
 import Page from '@/components/documents/Page';
-import NotFound from '@/components/NotFound';
+import Tutorial from '@/components/Tutorial';
 
 Vue.use(Router);
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/page/:uid',
       name: 'page',
       component: Page
+    },
+    {
+      path: '/tutorial',
+      name: 'tutorial',
+      component: Tutorial
     },
     {
       path: '*',
