@@ -2,9 +2,12 @@
   <div id="prismic-tutorial">
 
     <header>
-      <nav><a href="#bootstrap"><strong>Configure a repository</strong></a><a href="https://prismic.io/docs/javascript/getting-started/integrating-with-an-existing-javascript-project" target="_blank" class="doc">Documentation<img src="@/assets/img/tutorial/open.svg" alt="Open"></a>
+      <nav>
+        <a href="#bootstrap"><strong>Configure a repository</strong></a>
+        <a href="https://prismic.io/docs/javascript/getting-started/integrating-with-an-existing-javascript-project" target="_blank" class="doc">Documentation<img src="@/assets/img/tutorial/open.svg" alt="Open"></a>
       </nav>
-      <div class="wrapper"><img src="@/assets/img/tutorial/rocket.svg" alt="Rocket">
+      <div class="wrapper">
+        <img src="@/assets/img/tutorial/rocket.svg" alt="Rocket">
         <h1>High five, you deserve it!</h1>
         <p>Grab a well deserved cup of coffee, you're just a few steps away from creating a page with dynamic content.</p>
       </div>
@@ -26,7 +29,8 @@
     </header>
 
     <section>
-      <p>This is a tutorial page included in this PHP Quickstart project, it has a few useful links and example snippets to help you get started. You can access this page at <a href="http://localhost:8080/tutorial">http://localhost:8080/tutorial</a>.</p>
+
+      <p>This is a tutorial page included in this Vue.js starter project, it has a few useful links and example snippets to help you get started. You can access this page at <a href="http://localhost:8080/tutorial">http://localhost:8080/tutorial</a>.</p>
       <h2>Follow these steps:</h2>
 
       <h3 id="bootstrap"><span>1</span>Bootstrap your project</h3>
@@ -133,13 +137,14 @@ $document = $WPGLOBAL['document'];
 
       <h3 id="done"><span>5</span>Well done!</h3>
       <p>Sit back and enjoy the result.</p>
-      <p>Basically in these few steps you've added content management to your page and thanks to the prismic.io Writing Room, you'll have:</p>
+      <p>Basically in these few steps you've added content management to your page and thanks to Prismic, you'll have:</p>
       <ol style="list-style-type: disc; padding-left: 20px;">
         <li>Full versioning of your content</li>
         <li>A nice rich editor to create and edit your content</li>
         <li>Collaboration with other users you choose to add to your repository</li>
         <li>Performance and scalability for your content using a Content Delivery Network around the world</li>
       </ol>
+
     </section>
 
   </div>
