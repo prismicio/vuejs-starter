@@ -105,16 +105,30 @@
 
 import Vue from 'vue';
 import Router from 'vue-router';
-import NotFound from '@/components/NotFound';
-import Preview from '@/components/Preview';
 import Tutorial from '@/components/Tutorial';
 import Page from '@/components/Page';
+import NotFound from '@/components/NotFound';
+import Preview from '@/components/Preview';
 
 Vue.use(Router);
 
 export default new Router({
   mode: 'history',
   routes: [
+    {
+      path: '/',
+      redirect: { name: 'tutorial' }
+    },
+    {
+      path: '/tutorial',
+      name: 'tutorial',
+      component: Tutorial
+    },
+    {
+      path: '/page/:uid',
+      name: 'page',
+      component: Page
+    },
     {
       path: '/not-found',
       name: 'not-found',
@@ -126,46 +140,66 @@ export default new Router({
       component: Preview
     },
     {
-      path: '/tutorial',
-      name: 'tutorial',
-      component: Tutorial
-    },
-    {
-      path: '/',
-      redirect: { name: 'tutorial' }
-    },
-    {
-      path: '/page/:uid',
-      name: 'page',
-      component: Page
-    },
-    {
       path: '*',
       redirect: { name: 'not-found' }
     }
   ]
 });
+
 </code></pre>
       <h4>Create component with the retrieving content</h4>
       <p>Now all that’s left to be done is to output on a component the content we fetched from the API. Create a new Vue component file named "Page.vue" inside the components folder. Here’s an example that’ll display a "page" documebt with its title, description and image:</p>
-<pre v-highlightjs class="source-code"><code class="javascript">
-&lt;?php
-use Prismic\Dom\RichText;
-
-$document = $WPGLOBAL['document'];
-?&gt;
-
-&lt;?php include_once 'header.php'; ?&gt;
-
-&lt;div&gt;
-  &lt;h1&gt;&lt;?= RichText::asText($document-&gt;data-&gt;title) ?&gt;&lt;/h1&gt;
+<pre v-highlightjs class="source-code"><code class="vue">
+&lt;template&gt;
   &lt;div&gt;
-    &lt;?= RichText::asHtml($document-&gt;data-&gt;description) ?&gt;
+    &lt;h1&gt;{{ syntaxContentTitle }}&lt;/h1&gt;
+    &lt;div v-html="content.description"/&gt;
+    &lt;div&gt;
+      &lt;img :src="content.image.url" :alt="content.image.alt"&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
-  &lt;img src="&lt;?= $document-&gt;data-&gt;image-&gt;url ?&gt;" alt="&lt;?= $document-&gt;data-&gt;image-&gt;alt ?&gt;"&gt;
-&lt;/div&gt;
+&lt;/template&gt;
 
-&lt;?php include_once 'footer.php'; ?&gt;
+&lt;script&gt;
+export default {
+  name: 'Page',
+  data () {
+    return {
+      content: {
+        title: '',
+        description: '',
+        image: {
+          url: '',
+          alt: ''
+        }
+      }
+    }
+  },
+  methods: {
+    getContent () {
+      this.$prismicGetApi.then((api) =&gt; {
+        return api.getByUID('page', this.$route.params.uid);
+      }).then((document) =&gt; {
+        if (!document) {
+          this.$router.push({ name: 'not-found' });
+          return ;
+        }
+        this.content.title = this.$prismicDOM.RichText.asText(document.data.title);
+        this.content.description = this.$prismicDOM.RichText.asHtml(document.data.description, this.$linkResolver);
+        this.content.image = {
+          url: document.data.image.url,
+          alt: document.data.image.alt
+        };
+      }, (err) =&gt; {
+        console.error('Something went wrong:', err);
+      });
+    }
+  },
+  created () {
+    this.getContent();
+  }
+};
+&lt;/script&gt;
 </code></pre>
       <p>In your browser go to <a href="http://localhost:8080/page/quickstart">http://localhost:8080/page/quickstart</a> and you’re done! You’ve officially created a Vue component that pulls content from Prismic.</p>
 
@@ -191,7 +225,12 @@ import VueHighlightJS from 'vue-highlightjs';
 Vue.use(VueHighlightJS);
 
 export default {
-  name: 'Tutorial'
+  name: 'Tutorial',
+  data () {
+    return {
+      syntaxContentTitle: '{{ content.title }}'
+    }
+  }
 };
 </script>
 
