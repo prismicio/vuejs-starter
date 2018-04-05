@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>Loading Preview...</div>
+    <p>Loading Preview...</p>
   </div>
 </template>
 

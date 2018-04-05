@@ -3,9 +3,7 @@ export default function (doc) {
     return '/not-found';
   }
 
-  if (doc.type === 'homepage') {
-    return '/';
-  } else if (doc.type === 'page') {
+  if (doc.type === 'page') {
     return '/page/' + doc.uid;
   }
 

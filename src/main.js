@@ -11,6 +11,7 @@ Vue.config.productionTip = false;
 Vue.use(Cookie);
 Vue.use(Prismic);
 
+/* eslint-disable no-new */
 new Vue({
   el: '#app',
   components: { App },

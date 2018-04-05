@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>Not Found</div>
+    <p>Not Found</p>
   </div>
 </template>
 
