@@ -42,6 +42,7 @@
       <h4>Configure your project</h4>
       <p>Open the index.html file and define the API endpoint of your Prismic repository:</p>
 <pre v-highlightjs class="source-code"><code class="html">// In index.html
+
 &lt;script&gt;
   window.prismic = {
     endpoint: 'https://your-repo-name.prismic.io/api/v2'
@@ -160,6 +161,7 @@ export default {
 };
 </script>
 
-<style scoped>
-@import "../assets/css/tutorial.min.css";
+<style>
+@import "../assets/css/tutorial/highlight.min.css";
+@import "../assets/css/tutorial/tutorial.min.css";
 </style>
