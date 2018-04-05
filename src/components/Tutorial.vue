@@ -9,7 +9,7 @@
       <div class="wrapper">
         <img src="@/assets/img/tutorial/rocket.svg" alt="Rocket">
         <h1>High five, you deserve it!</h1>
-        <p>Grab a well deserved cup of coffee, you’re just a few steps away from creating a page with dynamic content.</p>
+        <p>Grab a well deserved cup of coffee, you’re just a few steps away from creating a Vue.js component with dynamic content.</p>
       </div>
       <div class="hero-curve"></div>
       <div class="flip-flap">
@@ -18,7 +18,7 @@
             <ul>
               <li><a href="#bootstrap"><span>1</span>Bootstrap your project<img src="@/assets/img/tutorial/arrow.svg" alt="Arrow"></a></li>
               <li><a href="#custom-type"><span>2</span>Create a Custom Type "Page"<img src="@/assets/img/tutorial/arrow.svg" alt="Arrow"></a></li>
-              <li><a href="#new-page"><span>3</span>Publish your first "Page" document<img src="@/assets/img/tutorial/arrow.svg" alt="Arrow"></a></li>
+              <li><a href="#new-document"><span>3</span>Publish your first "Page" document<img src="@/assets/img/tutorial/arrow.svg" alt="Arrow"></a></li>
               <li><a href="#code"><span>4</span>Query the API inside a Vue component<img src="@/assets/img/tutorial/arrow.svg" alt="Arrow"></a></li>
               <li><a href="#done"><span>5</span>Well done!<img src="@/assets/img/tutorial/arrow.svg" alt="Arrow"></a></li>
             </ul>
@@ -52,7 +52,7 @@
       <p>Next let’s see how to create a Vue component filled with content retrieved from Prismic!</p>
 
       <h3 id="custom-type"><span>2</span>Create a Custom Type "Page"</h3>
-      <p>We will create a page containing a title, a paragraph and an image. Let’s create a Custom Type in Prismic with the corresponding fields. We’ll add an additional UID (unique identifier) field for querying the page.</p>
+      <p>We will create a document containing a title, a paragraph and an image. Let’s create a Custom Type in Prismic with the corresponding fields. We’ll add an additional UID (unique identifier) field for querying the document.</p>
       <p>Go to the repository backend you’ve just created (at https://your-repo-name.prismic.io). Then navigate to the <em>"Custom Types"</em> section (icon on the left navbar) and create a new Repeatable Type, for this tutorial let’s name it "Page". Make sure that the system automatically assigns this an API ID of "page".</p>
       <p>Once the "Page" Custom Type is created, we have to define how we want to model it, that is to say a document containing a UID, a title, a paragraph and an image. Click on <em>"JSON editor"</em> (right sidebar) and paste the following JSON data into the Custom Type JSON editor. When you’re done, hit <em>"Save"</em>.</p>
 <pre v-highlightjs class="source-code"><code class="json">{
@@ -87,10 +87,10 @@
 }
 </code></pre>
 
-      <h3 id="new-page"><span>3</span>Publish your first "Page" document</h3>
+      <h3 id="new-document"><span>3</span>Publish your first "Page" document</h3>
       <p>The "Page" Custom Type you’ve just created contains a UID, a title, a paragraph, and an image. Now it is time to fill in your first "Page" document!</p>
-      <p>Create a new "Page" content in your repository: go to <em>"Content"</em> and hit <em>"New"</em>.</p>
-      <p>Fill the corresponding fields. Note the value you filled in the UID field, because it will be a part of the page URL, for that purpose let’s type "quickstart".</p>
+      <p>Create a new "Page" document in your repository: go to <em>"Content"</em> and hit <em>"New"</em>.</p>
+      <p>Fill the corresponding fields. Note the value you filled in the UID field, because it will be a part of the route path, for that purpose let’s type "quickstart".</p>
       <p>When you’re done, hit <em>"Save"</em> then <em>"Publish"</em>.</p>
 
       <h3 id="code"><span>4</span>Query the API inside a Vue component</h3>
