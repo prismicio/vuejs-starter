@@ -9,7 +9,7 @@
       <div class="wrapper">
         <img src="@/assets/img/tutorial/rocket.svg" alt="Rocket">
         <h1>High five, you deserve it!</h1>
-        <p>Grab a well deserved cup of coffee, you’re just a few steps away from creating a Vue.js component with dynamic content.</p>
+        <p>Grab a well deserved cup of coffee, you’re just a few steps away from creating a Vue.js component with content managed on Prismic.</p>
       </div>
       <div class="hero-curve"></div>
       <div class="flip-flap">
@@ -30,11 +30,10 @@
 
     <section>
 
-      <p>
-        This is a tutorial page included in this Vue.js starter project, it has a few useful links and example snippets to help you get started.<br>
-        You can access this page at <a href="http://localhost:8080/tutorial">http://localhost:8080/tutorial</a>.
-      </p>
-      <h2>Follow these steps:</h2>
+      <p>This is a tutorial page included in this Vue.js starter project, it has a few useful links and example code snippets to help you get started.</p>
+      <p>You can access this tutorial page at <a href="http://localhost:8080/tutorial">http://localhost:8080/tutorial</a>.</p>
+
+      <h2>Follow these 5 simple steps</h2>
 
       <h3 id="bootstrap"><span>1</span>Bootstrap your project</h3>
       <h4>Create a Prismic content repository</h4>
@@ -52,9 +51,10 @@
       <p>Next let’s see how to create a Vue component filled with content retrieved from Prismic.</p>
 
       <h3 id="custom-type"><span>2</span>Create a Custom Type "Page"</h3>
-      <p>We will create a document containing a title, a rich text and an image. Let’s create a Custom Type in Prismic with the corresponding fields. We’ll add an additional UID field (unique identifier) for querying the document.</p>
-      <p>Go to the Web interface of the Prismic repository you’ve just created (at https://your-repo-name.prismic.io). Then navigate to the <em>"Custom Types"</em> section (icon on the left navbar) and create a new Repeatable Type, for this tutorial let’s name it "Page", so that its API ID will be set to "page".</p>
-      <p>Once the "Page" Custom Type is created, we have to define how we want to model it, that is to say a document containing a UID, a title, a rich text and an image. Click on <em>"JSON editor"</em> (right sidebar) and paste the following JSON data into the Custom Type JSON editor. When you’re done, hit <em>"Save"</em>.</p>
+      <p>We’ll create a document containing a title, a rich text description and an image. Let’s create a Custom Type in Prismic with the corresponding fields. We’ll add an additional UID field (unique identifier) for querying the document.</p>
+      <p>Go to the Web interface of the Prismic repository you’ve just created (at https://your-repo-name.prismic.io). Then navigate to the <em>"Custom Types"</em> section (icon on the left navbar) and create a new Repeatable Type, for this tutorial let’s name it "Page", so that its API ID will be set to <strong>"page"</strong>.</p>
+      <p>Once the "Page" Custom Type is created, we have to define how we want to model it, that is to say a document containing a UID, a title, a rich text description and an image. Click on <em>"JSON editor"</em> (right sidebar) and paste the following JSON data into the Custom Type JSON editor.</p>
+      <p>When you’re done, hit <em>"Save"</em>.</p>
 <pre v-highlightjs class="source-code"><code class="json">{
   "Main": {
     "uid": {
@@ -88,35 +88,19 @@
 </code></pre>
 
       <h3 id="new-document"><span>3</span>Publish your first "Page" document</h3>
-      <p>The "Page" Custom Type you’ve just created contains a UID, a title, a rich text, and an image. Now it is time to fill in and publish your first "Page" document.</p>
-      <p>Create a new "Page" document in your repository: go to <em>"Content"</em> and hit <em>"New"</em>.</p>
-      <p>Fill the corresponding fields. Note the value you filled in the UID field, because it will be a part of the component route path, for that purpose let’s put "quickstart".</p>
+      <p>The "Page" Custom Type you’ve just created contains a UID, a title, a rich text description, and an image. Now it is time to fill in and publish your first "Page" document.</p>
+      <p>
+        Create a new "Page" document in your repository: go to <em>"Content"</em> and hit <em>"New"</em>.
+        Fill the corresponding fields. Note the value you filled in the UID field, because it will be a part of the component route path, for this tutorial let’s put <strong>"quickstart"</strong>.
+      </p>
       <p>When you’re done, hit <em>"Save"</em> then <em>"Publish"</em>.</p>
 
       <h3 id="code"><span>4</span>Query the API in your Vue component</h3>
-      <h4>Query the API for your "quickstart" page</h4>
-      <p>Now that you’ve created your "quickstart" page in your Prismic repository, go back to your local code. Let’s make an API call to retrieve document content. For that, we will use the specified UID.</p>
-      <p>
-        Once we’ve retrieved the content, we fill the component with it.
-        <br>
-        Add the following route to the src/router/index.js file:
-      </p>
-<pre v-highlightjs class="source-code"><code class="javascript">// In src/router/index.js
-
-// ...
-import Page from '@/components/Page';
-// ...
-{
-  path: '/page/:uid',
-  name: 'page',
-  component: Page
-},
-// ...
-</code></pre>
 
       <h4>Create component with the retrieving content</h4>
-      <p>Now all that’s left to be done is to output on a component the content we fetched from the API. Create a new Vue component file named "Page.vue" inside the components folder. Here’s an example that’ll display a "page" documebt with its title, description and image:</p>
-<pre v-highlightjs class="source-code"><code class="vue">
+      <p>Let’s create a Vue component that will display content fetched from the Prismic API. Go back to your local code and create a new Vue component file named "Page.vue" inside the components folder.  We’ll make an API call to retrieve the document content, querying it by specifying its UID. Here’s an example that’ll render a "Page" document with its title, rich text description and image:</p>
+<pre v-highlightjs class="source-code"><code class="vue">// Create file src/components/Page.vue
+
 &lt;template&gt;
   &lt;div&gt;
     &lt;h1&gt;{{ syntaxContentTitle }}&lt;/h1&gt;
@@ -168,7 +152,27 @@ export default {
 };
 &lt;/script&gt;
 </code></pre>
-      <p>In your browser go to <a href="http://localhost:8080/page/quickstart" target="_blank">http://localhost:8080/page/quickstart</a> and you’re done. You’ve officially created a Vue component that pulls content from Prismic.</p>
+
+      <h4>Specify a route for this Page component</h4>
+      <p>Now that you’ve created your Page component, add the following route to the Vue Router, in src/router/index.js file:</p>
+<pre v-highlightjs class="source-code"><code class="javascript">// In src/router/index.js
+
+// ...
+
+import Page from '@/components/Page';
+
+// ...
+
+{
+  path: '/page/:uid',
+  name: 'page',
+  component: Page
+},
+
+// ...
+</code></pre>
+
+      <p>In your browser go to <a href="http://localhost:8080/page/quickstart" target="_blank">http://localhost:8080/page/quickstart</a> <em>and voilà!</em> You’ve officially created a Vue component that pulls content from Prismic.</p>
 
       <h3 id="done"><span>5</span>Well done!</h3>
       <p>Sit back and enjoy the result.</p>
