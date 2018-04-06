@@ -19,3 +19,11 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## How to remove the tutorial from the project
+
+- Remove the Tutorial import and route in src/router/index.js
+- Delete file src/components/Tutorial.vue
+- Delete folders src/assets/css/tutorial/
+- Delete folders src/assets/img/tutorial/
+- Remove vue-highlightjs dependency: npm uninstall vue-highlightjs (or: yarn remove vue-highlightjs)

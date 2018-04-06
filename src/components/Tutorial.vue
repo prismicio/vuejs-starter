@@ -53,7 +53,7 @@
       <h3 id="custom-type"><span>2</span>Create a Custom Type "Page"</h3>
       <p>We’ll create a document containing a title, a rich text description and an image. Let’s create a Custom Type in Prismic with the corresponding fields. We’ll add an additional UID field (unique identifier) for querying the document.</p>
       <p>Go to the Web interface of the Prismic repository you’ve just created (at https://your-repo-name.prismic.io). Then navigate to the <em>"Custom Types"</em> section (icon on the left navbar) and create a new Repeatable Type, for this tutorial let’s name it "Page", so that its API ID will be set to <strong>"page"</strong>.</p>
-      <p>Once the "Page" Custom Type is created, we have to define how we want to model it, that is to say a document containing a UID, a title, a rich text description and an image. Click on <em>"JSON editor"</em> (right sidebar) and paste the following JSON data into the Custom Type JSON editor.</p>
+      <p>Once the "Page" Custom Type is created, we have to define how we want to model it, that is to say a document containing a UID, a title, a rich text description and an image. Click on <em>"JSON editor"</em> (right sidebar) and paste in the following JSON data.</p>
       <p>When you’re done, hit <em>"Save"</em>.</p>
 <pre v-highlightjs class="source-code"><code class="json">{
   "Main": {
@@ -153,7 +153,7 @@ export default {
 &lt;/script&gt;
 </code></pre>
 
-      <h4>Specify a route for this Page component</h4>
+      <h4>Specify a route for the Page component</h4>
       <p>Now that you’ve created your Page component, add the following route to the Vue Router, in src/router/index.js file:</p>
 <pre v-highlightjs class="source-code"><code class="javascript">// In src/router/index.js
 
@@ -182,14 +182,6 @@ import Page from '@/components/Page';
         <li>A nice rich editor to create and edit your content</li>
         <li>Collaboration with other users you choose to add to your repository</li>
         <li>Performance and scalability for your content using a Content Delivery Network around the world</li>
-      </ol>
-
-      <h2>How to remove this tutorial from the project</h2>
-      <ol style="list-style-type: disc; padding-left: 20px;">
-        <li>Remove the Tutorial import and route in src/router/index.js</li>
-        <li>Delete file src/components/Tutorial.vue</li>
-        <li>Delete folders src/assets/css/tutorial/ and src/assets/img/tutorial/</li>
-        <li>Remove vue-highlightjs dependency: npm uninstall --save vue-highlightjs</li>
       </ol>
 
     </section>
