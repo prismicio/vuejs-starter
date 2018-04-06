@@ -2,6 +2,25 @@
 
 > Vue.js starter project for querying content from Prismic
 
+## How to launch this project in your local environment
+
+Run the following commands:
+
+``` bash
+npm install
+npm run dev
+```
+
+Then you can access it at [http://localhost:8080](http://localhost:8080).
+You'll see a tutorial that explain how to create your first Vue component filled with content retrieved from Prismic.
+
+## How to remove the tutorial from this project
+
+- Remove Tutorial import and route in src/router/index.js
+- Delete Tutorial component file (rm src/components/Tutorial.vue)
+- Delete Tutorial assets (rm -r src/assets/css/tutorial/ && rm -r src/assets/img/tutorial/)
+- Remove vue-highlightjs dependency (npm uninstall vue-highlightjs)
+
 ## Build Setup
 
 ``` bash
@@ -19,10 +38,3 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
-## How to remove the Tutorial from the project
-
-- Remove Tutorial import and route in src/router/index.js
-- Delete Tutorial component file (rm src/components/Tutorial.vue)
-- Delete Tutorial assets (rm -r src/assets/css/tutorial/ && rm -r src/assets/img/tutorial/)
-- Remove vue-highlightjs dependency (npm uninstall vue-highlightjs)
