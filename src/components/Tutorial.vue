@@ -184,6 +184,14 @@ import Page from '@/components/Page';
         <li>Performance and scalability for your content using a Content Delivery Network around the world</li>
       </ol>
 
+      <h2>How to remove this tutorial from the project</h2>
+      <ol style="list-style-type: disc; padding-left: 20px;">
+        <li>Remove the Tutorial import and route in src/router/index.js</li>
+        <li>Delete file src/components/Tutorial.vue</li>
+        <li>Delete folders src/assets/css/tutorial/ and src/assets/img/tutorial/</li>
+        <li>Remove vue-highlightjs dependency: npm uninstall --save vue-highlightjs</li>
+      </ol>
+
     </section>
 
   </div>
