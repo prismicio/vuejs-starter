@@ -4,7 +4,7 @@
     <header>
       <nav>
         <a href="#bootstrap"><strong>Configure a repository</strong></a>
-        <a href="https://prismic.io/docs/javascript/getting-started/integrating-with-an-existing-javascript-project" target="_blank" class="doc">Documentation<img src="@/assets/img/tutorial/open.svg" alt="Open"></a>
+        <a href="https://prismic.io/docs/javascript/getting-started/integrating-with-an-existing-javascript-project" target="_blank" rel="noopener" class="doc">Documentation<img src="@/assets/img/tutorial/open.svg" alt="Open"></a>
       </nav>
       <div class="wrapper">
         <img src="@/assets/img/tutorial/rocket.svg" alt="Rocket">
@@ -37,7 +37,7 @@
 
       <h3 id="bootstrap"><span>1</span>Bootstrap your project</h3>
       <h4>Create a Prismic content repository</h4>
-      <p>A repository is where your website’s content will live. Simply <a href="https://prismic.io/#create" target="_blank">create one</a> choosing a repository name and a plan. We’ve got a variety of plans including our favorite: Free!</p>
+      <p>A repository is where your website’s content will live. Simply <a href="https://prismic.io/#create" target="_blank" rel="noopener">create one</a> choosing a repository name and a plan. We’ve got a variety of plans including our favorite: Free!</p>
       <h4>Configure your project</h4>
       <p>Open the index.html file and define the API endpoint of your Prismic repository:</p>
 <pre v-highlightjs class="source-code"><code class="html">&lt;!-- In index.html --&gt;
@@ -174,7 +174,7 @@ import Page from '@/components/Page';
 // ...
 </code></pre>
 
-      <p>In your browser go to <a href="http://localhost:8080/page/quickstart" target="_blank">http://localhost:8080/page/quickstart</a> <em>and voilà!</em> You’ve officially created a Vue component that pulls content from Prismic.</p>
+      <p>In your browser go to <a href="http://localhost:8080/page/quickstart" target="_blank" rel="noopener">http://localhost:8080/page/quickstart</a> <em>and voilà!</em> You’ve officially created a Vue component that pulls content from Prismic.</p>
 
       <h3 id="done"><span>5</span>Well done!</h3>
       <p>Sit back and enjoy the result.</p>
