@@ -16,11 +16,11 @@
         <div class="flipper">
           <div class="guide">
             <ul>
-              <li><a href="#bootstrap"><span>1</span>Bootstrap your project<img src="@/assets/img/tutorial/arrow.svg" alt="Arrow"></a></li>
-              <li><a href="#custom-type"><span>2</span>Create a Custom Type "Page"<img src="@/assets/img/tutorial/arrow.svg" alt="Arrow"></a></li>
-              <li><a href="#new-document"><span>3</span>Publish your first "Page" document<img src="@/assets/img/tutorial/arrow.svg" alt="Arrow"></a></li>
-              <li><a href="#code"><span>4</span>Query the API in your Vue component<img src="@/assets/img/tutorial/arrow.svg" alt="Arrow"></a></li>
-              <li><a href="#done"><span>5</span>Well done!<img src="@/assets/img/tutorial/arrow.svg" alt="Arrow"></a></li>
+              <li><a href="#bootstrap"><span>1</span>Bootstrap your project<img src="@/assets/img/tutorial/chevron.svg" alt="Chevron down"></a></li>
+              <li><a href="#custom-type"><span>2</span>Create a Custom Type "Page"<img src="@/assets/img/tutorial/chevron.svg" alt="Chevron down"></a></li>
+              <li><a href="#new-document"><span>3</span>Publish your first "Page" document<img src="@/assets/img/tutorial/chevron.svg" alt="Chevron down"></a></li>
+              <li><a href="#code"><span>4</span>Query the API in your Vue component<img src="@/assets/img/tutorial/chevron.svg" alt="Chevron down"></a></li>
+              <li><a href="#done"><span>5</span>Well done!<img src="@/assets/img/tutorial/chevron.svg" alt="Chevron down"></a></li>
             </ul>
           </div>
           <div class="gif"></div>
