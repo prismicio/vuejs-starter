@@ -98,7 +98,9 @@
       <h3 id="code"><span>4</span>Query the API in your Vue component</h3>
 
       <h4>Create component with the retrieving content</h4>
-      <p>Let’s create a Vue component that will display content fetched from the Prismic API. Go back to your local code and create a new Vue component file named "Page.vue" inside the components folder.  We’ll make an API call to retrieve the document content, querying it by specifying its UID. Here’s an example that’ll render a "Page" document with its title, rich text description and image:</p>
+      <p>Let’s create a Vue component that will display content fetched from the Prismic API.</p>
+      <p>Go back to your local code and create a new Vue component file named "Page.vue" inside the components folder (src/components/Page.vue).  We’ll make an API call to retrieve the document content, querying it by specifying its UID.</p>
+      <p>Here’s an example that’ll render a "Page" document with its title, description and image:</p>
 <pre v-highlightjs class="source-code"><code class="vue">// Create file src/components/Page.vue
 
 &lt;template&gt;
