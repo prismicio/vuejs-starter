@@ -104,7 +104,7 @@
 <pre v-highlightjs class="source-code"><code class="vue">// Create file src/components/Page.vue
 
 &lt;template&gt;
-  &lt;div&gt;
+  &lt;div :data-wio-id="content.id"&gt;
     &lt;h1&gt;{{ syntaxContentTitle }}&lt;/h1&gt;
     &lt;div v-html="content.description"/&gt;
     &lt;div&gt;
@@ -119,6 +119,7 @@ export default {
   data () {
     return {
       content: {
+        id: '',
         title: '',
         description: '',
         image: {
@@ -137,6 +138,7 @@ export default {
           this.$router.push({ name: 'not-found' });
           return ;
         }
+        this.content.id = document.id;
         this.content.title = this.$prismicDOM.RichText.asText(document.data.title);
         this.content.description = this.$prismicDOM.RichText.asHtml(document.data.description, this.$linkResolver);
         this.content.image = {
