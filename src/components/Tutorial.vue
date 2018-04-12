@@ -106,7 +106,7 @@
 &lt;template&gt;
   &lt;div :data-wio-id="content.id"&gt;
     &lt;h1&gt;{{ syntaxContentTitle }}&lt;/h1&gt;
-    &lt;div v-html="content.description"/&gt;
+    &lt;div :is="content.description"/&gt;
     &lt;div&gt;
       &lt;img :src="content.image.url" :alt="content.image.alt"&gt;
     &lt;/div&gt;
@@ -121,40 +121,44 @@ export default {
       content: {
         id: '',
         title: '',
-        description: '',
-        image: {
-          url: '',
-          alt: ''
-        }
+        description: {
+          template: '&lt;div/&gt;'
+        },
+        image: {}
       }
     }
   },
   methods: {
-    getContent () {
+    getContent (uid) {
       this.$prismicGetApi.then((api) =&gt; {
-        return api.getByUID('page', this.$route.params.uid);
+        return api.getByUID('page', uid);
       }).then((document) =&gt; {
         if (!document) {
           this.$router.push({ name: 'not-found' });
           return ;
         }
+
         this.content.id = document.id;
         this.content.title = this.$prismicDOM.RichText.asText(document.data.title);
-        this.content.description = this.$prismicDOM.RichText.asHtml(document.data.description, this.$linkResolver);
-        this.content.image = {
-          url: document.data.image.url,
-          alt: document.data.image.alt
+        this.content.description = {
+          template: '&lt;div&gt;' + this.$prismicDOM.RichText.asHtml(document.data.description, this.$linkResolver, this.$htmlSerializer) + '&lt;/div&gt;'
         };
+        this.content.image = document.data.image;
       }, (err) =&gt; {
         console.error('Something went wrong:', err);
       });
     }
   },
   created () {
-    this.getContent();
+    this.getContent(this.$route.params.uid);
+  },
+  beforeRouteUpdate (to, from, next) {
+    this.getContent(to.params.uid);
+    next();
   }
 };
 &lt;/script&gt;
+
 </code></pre>
 
       <h4>Specify a route for the Page component</h4>
