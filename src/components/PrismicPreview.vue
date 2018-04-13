@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'Preview',
+  name: 'PrismicPreview',
   beforeCreate () {
     const previewToken = this.$route.query.token;
 
@@ -19,6 +19,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-</style>
