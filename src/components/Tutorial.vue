@@ -172,7 +172,6 @@ export default {
   }
 };
 &lt;/script&gt;
-
 </code></pre>
 
       <h4>Specify a route for the Page component</h4>
