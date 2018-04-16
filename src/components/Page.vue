@@ -12,19 +12,21 @@
     </prismic-link>
 
     <div>
-      <img :src="content.icon.url" :alt="content.icon.alt">
+      <prismic-image :field="content.icon"/>
     </div>
 
   </div>
 </template>
 
 <script>
+import PrismicImage from '@/components/PrismicImage';
 import PrismicLink from '@/components/PrismicLink';
 import PrismicRichText from '@/components/PrismicRichText';
 
 export default {
   name: 'Page',
   components: {
+    PrismicImage,
     PrismicLink,
     PrismicRichText
   },

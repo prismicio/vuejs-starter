@@ -31,11 +31,7 @@ export default {
           </div>
         `;
       } else {
-        template = `
-          <span>
-            ${prismicDOM.RichText.asText(this.field)}
-          </span>
-        `;
+        template = `<span>${prismicDOM.RichText.asText(this.field)}</span>`;
       }
       return { template };
     }
