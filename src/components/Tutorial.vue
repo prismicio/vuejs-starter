@@ -105,26 +105,40 @@
 
 &lt;template&gt;
   &lt;div :data-wio-id="content.id"&gt;
-    &lt;h1&gt;{{ syntaxContentTitle }}&lt;/h1&gt;
-    &lt;div :is="content.description"/&gt;
+    &lt;h1&gt;
+      &lt;prismic-rich-text :field="content.title" :asText="true"/&gt;
+    &lt;/h1&gt;
+    &lt;prismic-rich-text :field="content.description"/&gt;
+    &lt;prismic-link :field="content.ctaLink"&gt;
+      &lt;prismic-rich-text :field="content.ctaText" :asText="true"/&gt;
+    &lt;/prismic-link&gt;
     &lt;div&gt;
-      &lt;img :src="content.image.url" :alt="content.image.alt"&gt;
+      &lt;prismic-image :field="content.icon"/&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/template&gt;
 
 &lt;script&gt;
+import PrismicImage from '@/components/Prismic/Image';
+import PrismicLink from '@/components/Prismic/Link';
+import PrismicRichText from '@/components/Prismic/RichText';
+
 export default {
   name: 'Page',
+  components: {
+    PrismicImage,
+    PrismicLink,
+    PrismicRichText
+  },
   data () {
     return {
       content: {
         id: '',
-        title: '',
-        description: {
-          template: '&lt;div/&gt;'
-        },
-        image: {}
+        title: [],
+        description: [],
+        ctaLink: {},
+        ctaText: [],
+        icon: {}
       }
     }
   },
@@ -139,11 +153,11 @@ export default {
         }
 
         this.content.id = document.id;
-        this.content.title = this.$prismicDOM.RichText.asText(document.data.title);
-        this.content.description = {
-          template: '&lt;div&gt;' + this.$prismicDOM.RichText.asHtml(document.data.description, this.$linkResolver, this.$htmlSerializer) + '&lt;/div&gt;'
-        };
-        this.content.image = document.data.image;
+        this.content.title = document.data.title;
+        this.content.description = document.data.description;
+        this.content.ctaLink = document.data.cta_link;
+        this.content.ctaText = document.data.cta_text;
+        this.content.icon = document.data.icon;
       }, (err) =&gt; {
         console.error('Something went wrong:', err);
       });
