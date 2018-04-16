@@ -1,34 +1,41 @@
 <template>
   <div :data-wio-id="content.id">
-    <h1>{{ content.title }}</h1>
-    <component :is="content.descriptionComponent"/>
-    <prismic-link :link="content.ctaLink">
-      {{ content.ctaText }}
+
+    <h1>
+      <prismic-rich-text :field="content.title" :asText="true"/>
+    </h1>
+
+    <prismic-rich-text :field="content.description" :asText="false"/>
+
+    <prismic-link :field="content.ctaLink">
+      <prismic-rich-text :field="content.ctaText" :asText="true"/>
     </prismic-link>
+
     <div>
       <img :src="content.icon.url" :alt="content.icon.alt">
     </div>
+
   </div>
 </template>
 
 <script>
 import PrismicLink from '@/components/PrismicLink';
+import PrismicRichText from '@/components/PrismicRichText';
 
 export default {
   name: 'Page',
   components: {
-    PrismicLink
+    PrismicLink,
+    PrismicRichText
   },
   data () {
     return {
       content: {
         id: '',
-        title: '',
-        descriptionComponent: {
-          template: '<div/>'
-        },
+        title: [],
+        description: [],
         ctaLink: {},
-        ctaText: '',
+        ctaText: [],
         icon: {}
       }
     }
@@ -44,12 +51,10 @@ export default {
         }
 
         this.content.id = document.id;
-        this.content.title = this.$prismicDOM.RichText.asText(document.data.title);
-        this.content.descriptionComponent = {
-          template: '<div>' + this.$prismicDOM.RichText.asHtml(document.data.description, this.$linkResolver, this.$htmlSerializer) + '</div>'
-        };
+        this.content.title = document.data.title;
+        this.content.description = document.data.description;
         this.content.ctaLink = document.data.cta_link;
-        this.content.ctaText = this.$prismicDOM.RichText.asText(document.data.cta_text);
+        this.content.ctaText = document.data.cta_text;
         this.content.icon = document.data.icon;
       }, (err) => {
         console.error('Something went wrong:', err);

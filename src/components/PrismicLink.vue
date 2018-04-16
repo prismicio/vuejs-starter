@@ -1,26 +1,42 @@
 <template>
-  <component :is="prismicLinkComponent">
+  <component :is="linkComponent">
     <slot/>
   </component>
 </template>
 
 <script>
+import prismicDOM from 'prismic-dom';
+import linkResolver from '@/prismic/link-resolver';
+
 export default {
   name: 'PrismicLink',
-  props: ['link'],
+  props: {
+    field: {
+      type: Object,
+      required: true
+    }
+  },
   computed: {
-    prismicLinkComponent () {
-      const url = this.$prismicDOM.Link.url(this.link, this.$linkResolver);
-      const target = this.link.target ? `target="'${this.link.target}'" rel="noopener"` : '';
+    linkComponent () {
+      let template = '';
+      const url = prismicDOM.Link.url(this.field, linkResolver);
 
-      if (this.link.link_type === 'Document') {
-        return {
-          template: `<router-link to="${url}"><slot/></router-link>`
-        };
+      if (this.field.link_type === 'Document') {
+        template = `
+          <router-link to="${url}">
+            <slot/>
+          </router-link>
+        `;
+      } else {
+        const target = this.field.target ? `target="'${this.field.target}'" rel="noopener"` : '';
+
+        template = `
+          <a href="${url}" ${target}>
+            <slot/>
+          </a>
+        `;
       }
-      return {
-        template: `<a href="${url}" ${target}><slot/></a>`
-      };
+      return { template };
     }
   }
 };
