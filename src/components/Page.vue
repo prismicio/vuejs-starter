@@ -1,7 +1,7 @@
 <template>
   <div :data-wio-id="content.id">
     <h1>{{ content.title }}</h1>
-    <div :is="content.description"/>
+    <component :is="content.descriptionComponent"/>
     <prismic-link :link="content.ctaLink">
       {{ content.ctaText }}
     </prismic-link>
@@ -24,7 +24,7 @@ export default {
       content: {
         id: '',
         title: '',
-        description: {
+        descriptionComponent: {
           template: '<div/>'
         },
         ctaLink: {},
@@ -45,7 +45,7 @@ export default {
 
         this.content.id = document.id;
         this.content.title = this.$prismicDOM.RichText.asText(document.data.title);
-        this.content.description = {
+        this.content.descriptionComponent = {
           template: '<div>' + this.$prismicDOM.RichText.asHtml(document.data.description, this.$linkResolver, this.$htmlSerializer) + '</div>'
         };
         this.content.ctaLink = document.data.cta_link;
