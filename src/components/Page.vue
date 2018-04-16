@@ -1,6 +1,5 @@
 <template>
   <div :data-wio-id="content.id">
-
     <h1>
       <prismic-rich-text :field="content.title" :asText="true"/>
     </h1>
@@ -14,14 +13,13 @@
     <div>
       <prismic-image :field="content.icon"/>
     </div>
-
   </div>
 </template>
 
 <script>
-import PrismicImage from '@/components/PrismicImage';
-import PrismicLink from '@/components/PrismicLink';
-import PrismicRichText from '@/components/PrismicRichText';
+import PrismicImage from '@/components/Prismic/Image';
+import PrismicLink from '@/components/Prismic/Link';
+import PrismicRichText from '@/components/Prismic/RichText';
 
 export default {
   name: 'Page',
