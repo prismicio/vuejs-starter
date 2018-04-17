@@ -12,12 +12,15 @@ export default {
   name: 'PrismicLink',
   props: {
     field: {
-      type: Object,
       required: true
     }
   },
   computed: {
     linkComponent () {
+      if (!this.field) {
+        return null;
+      }
+
       let template = '';
       const url = prismicDOM.Link.url(this.field, linkResolver);
 

@@ -11,7 +11,6 @@ export default {
   name: 'PrismicRichText',
   props: {
     field: {
-      type: Array,
       required: true
     },
     asText: {
@@ -22,6 +21,10 @@ export default {
   },
   computed: {
     richTextComponent () {
+      if (!this.field) {
+        return null;
+      }
+
       let template = '';
 
       if (this.asText === false) {

@@ -7,12 +7,15 @@ export default {
   name: 'PrismicImage',
   props: {
     field: {
-      type: Object,
       required: true
     }
   },
   computed: {
     imageComponent () {
+      if (!this.field) {
+        return null;
+      }
+
       return {
         template: `<img src="${this.field.url}" alt="${this.field.alt}">`
       };
