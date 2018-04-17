@@ -1,11 +1,11 @@
 <template>
   <div :data-wio-id="documentId">
     <h1>
-      <prismic-rich-text :field="fields.title" :asText="true"/>
+      <prismic-rich-text :field="fields.title" :isPlain="true"/>
     </h1>
     <prismic-rich-text :field="fields.description"/>
     <prismic-link :field="fields.ctaLink">
-      <prismic-rich-text :field="fields.ctaText" :asText="true"/>
+      <prismic-rich-text :field="fields.ctaText" :isPlain="true"/>
     </prismic-link>
     <div>
       <prismic-image :field="fields.icon"/>

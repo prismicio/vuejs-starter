@@ -13,7 +13,7 @@ export default {
     field: {
       required: true
     },
-    asText: {
+    isPlain: {
       type: Boolean,
       required: false,
       default: false
@@ -27,7 +27,7 @@ export default {
 
       let template = '';
 
-      if (this.asText === false) {
+      if (this.isPlain === false) {
         template = `
           <div>
             ${prismicDOM.RichText.asHtml(this.field, linkResolver, htmlSerializer)}
