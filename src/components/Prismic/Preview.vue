@@ -15,7 +15,7 @@ export default {
     this.$prismic.getApi(window.prismic.endpoint).then((api) => {
       api.previewSession(previewToken, linkResolver, '/').then((url) => {
         this.$cookie.set(this.$prismic.previewCookie, previewToken, { expires: '30m' });
-        this.$router.push(url);
+        window.location.replace(url);
       });
     });
   }
