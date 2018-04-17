@@ -36,15 +36,15 @@ export default {
       this.$prismic.getApi(window.prismic.endpoint).then((api) => {
         return api.getByUID('page', uid);
       }).then((document) => {
-        if (!document) {
-          this.$router.push({ name: 'not-found' });
-        } else {
+        if (document) {
           this.documentId = document.id;
           this.fields.title = document.data.title;
           this.fields.description = document.data.description;
           this.fields.ctaLink = document.data.cta_link;
           this.fields.ctaText = document.data.cta_text;
           this.fields.icon = document.data.icon;
+        } else {
+          this.$router.push({ name: 'not-found' });
         }
       }, (err) => {
         console.error('Something went wrong:', err);
