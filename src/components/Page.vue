@@ -28,18 +28,12 @@ export default {
   data () {
     return {
       documentId: '',
-      fields: {
-        title: null,
-        description: null,
-        ctaLink: null,
-        ctaText: null,
-        icon: null
-      }
+      fields: this.$prismic.initFields('title', 'description', 'ctaLink', 'ctaText', 'icon')
     }
   },
   methods: {
     getContent (uid) {
-      this.$prismicGetApi.then((api) => {
+      this.$prismic.getApi(window.prismic.endpoint).then((api) => {
         return api.getByUID('page', uid);
       }).then((document) => {
         if (!document) {
