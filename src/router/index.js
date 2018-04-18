@@ -35,8 +35,4 @@ const router = new Router({
   ]
 });
 
-router.afterEach((to, from) => {
-  window.PrismicToolbar.setupEditButton();
-});
-
 export default router;
