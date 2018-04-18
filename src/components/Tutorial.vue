@@ -60,7 +60,7 @@
     "uid": {
       "type": "UID",
       "config": {
-        "placeholder": "UID",
+        "placeholder": "UID...",
         "label": "UID"
       }
     },
@@ -76,11 +76,28 @@
       "type": "StructuredText",
       "config": {
         "multi": "paragraph, strong, em, hyperlink",
+        "allowTargetBlank": true,
         "label": "Description",
         "placeholder": "Description..."
       }
     },
-    "image": {
+    "cta_link": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "CTA link",
+        "placeholder": "CTA link..."
+      }
+    },
+    "cta_text": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "CTA text",
+        "placeholder": "CTA text..."
+      }
+    },
+    "icon": {
       "type": "Image"
     }
   }
