@@ -3,7 +3,6 @@ import Router from 'vue-router';
 import NotFound from '@/components/NotFound';
 import PrismicPreview from '@/components/Prismic/Preview';
 import Tutorial from '@/components/Tutorial';
-import Page from '@/components/Page';
 
 Vue.use(Router);
 
@@ -28,11 +27,6 @@ const router = new Router({
       path: '/tutorial',
       name: 'tutorial',
       component: Tutorial
-    },
-    {
-      path: '/page/:uid',
-      name: 'page',
-      component: Page
     },
     {
       path: '*',

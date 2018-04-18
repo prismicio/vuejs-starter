@@ -104,16 +104,16 @@
 <pre v-highlightjs class="source-code"><code class="vue">// Create file src/components/Page.vue
 
 &lt;template&gt;
-  &lt;div :data-wio-id="content.id"&gt;
+  &lt;div :data-wio-id="documentId"&gt;
     &lt;h1&gt;
-      &lt;prismic-rich-text :field="content.title" :asText="true"/&gt;
+      &lt;prismic-rich-text :field="fields.title" :isPlain="true"/&gt;
     &lt;/h1&gt;
-    &lt;prismic-rich-text :field="content.description"/&gt;
-    &lt;prismic-link :field="content.ctaLink"&gt;
-      &lt;prismic-rich-text :field="content.ctaText" :asText="true"/&gt;
+    &lt;prismic-rich-text :field="fields.description"/&gt;
+    &lt;prismic-link :field="fields.ctaLink"&gt;
+      &lt;prismic-rich-text :field="fields.ctaText" :isPlain="true"/&gt;
     &lt;/prismic-link&gt;
     &lt;div&gt;
-      &lt;prismic-image :field="content.icon"/&gt;
+      &lt;prismic-image :field="fields.icon"/&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/template&gt;
@@ -132,32 +132,25 @@ export default {
   },
   data () {
     return {
-      content: {
-        id: '',
-        title: [],
-        description: [],
-        ctaLink: {},
-        ctaText: [],
-        icon: {}
-      }
+      documentId: '',
+      fields: this.$prismic.initFields(['title', 'description', 'ctaLink', 'ctaText', 'icon'])
     }
   },
   methods: {
     getContent (uid) {
-      this.$prismicGetApi.then((api) =&gt; {
+      this.$prismic.getApi(this.$prismic.endpoint).then((api) =&gt; {
         return api.getByUID('page', uid);
       }).then((document) =&gt; {
-        if (!document) {
+        if (document) {
+          this.documentId = document.id;
+          this.fields.title = document.data.title;
+          this.fields.description = document.data.description;
+          this.fields.ctaLink = document.data.cta_link;
+          this.fields.ctaText = document.data.cta_text;
+          this.fields.icon = document.data.icon;
+        } else {
           this.$router.push({ name: 'not-found' });
-          return ;
         }
-
-        this.content.id = document.id;
-        this.content.title = document.data.title;
-        this.content.description = document.data.description;
-        this.content.ctaLink = document.data.cta_link;
-        this.content.ctaText = document.data.cta_text;
-        this.content.icon = document.data.icon;
       }, (err) =&gt; {
         console.error('Something went wrong:', err);
       });
@@ -217,12 +210,7 @@ import VueHighlightJS from 'vue-highlightjs';
 Vue.use(VueHighlightJS);
 
 export default {
-  name: 'Tutorial',
-  data () {
-    return {
-      syntaxContentTitle: '{{ content.title }}'
-    }
-  }
+  name: 'Tutorial'
 };
 </script>
 
