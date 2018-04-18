@@ -28,7 +28,7 @@ export default {
   data () {
     return {
       documentId: '',
-      fields: this.$prismic.initFields('title', 'description', 'ctaLink', 'ctaText', 'icon')
+      fields: this.$prismic.initFields(['title', 'description', 'ctaLink', 'ctaText', 'icon'])
     }
   },
   methods: {
