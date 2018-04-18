@@ -31,7 +31,7 @@
     <section>
 
       <p>This is a tutorial page included in this Vue.js starter project, it has a few useful links and example code snippets to help you get started.</p>
-      <p>You can access this tutorial page at <a href="http://localhost:8080/tutorial">http://localhost:8080/tutorial</a>.</p>
+      <p>You can access this very tutorial page at <a href="http://localhost:8080/tutorial">http://localhost:8080/tutorial</a>.</p>
 
       <h2>Follow these 5 simple steps</h2>
 
@@ -51,9 +51,9 @@
       <p>Next let’s see how to create a Vue component filled with content retrieved from Prismic.</p>
 
       <h3 id="custom-type"><span>2</span>Create a Custom Type "Page"</h3>
-      <p>We’ll create a document containing a title, a rich text description and an image. Let’s create a Custom Type in Prismic with the corresponding fields. We’ll add an additional UID field (unique identifier) for querying the document.</p>
+      <p>We’ll create a document containing a title, a description, a call to action and an icon. Let’s create a Custom Type in Prismic with the corresponding fields. We’ll add an additional UID field (unique identifier) for querying the document.</p>
       <p>Go to the Web interface of the Prismic repository you’ve just created (at https://your-repo-name.prismic.io). Then navigate to the <em>"Custom Types"</em> section (icon on the left navbar) and create a new Repeatable Type, for this tutorial let’s name it "Page", so that its API ID will be set to <strong>"page"</strong>.</p>
-      <p>Once the "Page" Custom Type is created, we have to define how we want to model it, that is to say a document containing a UID, a title, a rich text description and an image. Click on <em>"JSON editor"</em> (right sidebar) and paste in the following JSON data.</p>
+      <p>Once the "Page" Custom Type is created, we have to define how we want to model it, that is to say a document containing a UID field, a rich text field for the title, a rich text field for the description, a link field + a rich text field for the call to action and an image field for the icon. Click on <em>"JSON editor"</em> (right sidebar) and paste in the following JSON data.</p>
       <p>When you’re done, hit <em>"Save"</em>.</p>
 <pre v-highlightjs class="source-code"><code class="json">{
   "Main": {
@@ -75,7 +75,7 @@
     "description": {
       "type": "StructuredText",
       "config": {
-        "multi": "paragraph, strong, em, hyperlink",
+        "multi": "paragraph, heading2, strong, em, hyperlink",
         "allowTargetBlank": true,
         "label": "Description",
         "placeholder": "Description..."
@@ -105,7 +105,7 @@
 </code></pre>
 
       <h3 id="new-document"><span>3</span>Publish your first "Page" document</h3>
-      <p>The "Page" Custom Type you’ve just created contains a UID, a title, a rich text description, and an image. Now it is time to fill in and publish your first "Page" document.</p>
+      <p>Now it is time to fill in and publish your first "Page" document in your Prismic repository.</p>
       <p>
         Create a new "Page" document in your repository: go to <em>"Content"</em> and hit <em>"New"</em>.
         Fill the corresponding fields. Note the value you filled in the UID field, because it will be a part of the component route path, for this tutorial let’s put <strong>"quickstart"</strong>.
@@ -117,11 +117,12 @@
       <h4>Create component with the retrieving content</h4>
       <p>Let’s create a Vue component that will display content fetched from the Prismic API.</p>
       <p>Go back to your local code and create a new Vue component file named "Page.vue" inside the components folder (src/components/Page.vue).  We’ll make an API call to retrieve the document content, querying it by specifying its UID.</p>
-      <p>Here’s an example that’ll render a "Page" document with its title, description and image:</p>
+      <p>Here’s an example that’ll render a "Page" document with its title, description, call to action and icon:</p>
 <pre v-highlightjs class="source-code"><code class="vue">// Create file src/components/Page.vue
 
 &lt;template&gt;
-  &lt;div :data-wio-id="documentId"&gt;
+  &lt;div&gt;
+    &lt;prismic-edit-button :documentId="documentId"/&gt;
     &lt;h1&gt;
       &lt;prismic-rich-text :field="fields.title" :isPlain="true"/&gt;
     &lt;/h1&gt;
@@ -136,6 +137,7 @@
 &lt;/template&gt;
 
 &lt;script&gt;
+import PrismicEditButton from '@/components/Prismic/EditButton';
 import PrismicImage from '@/components/Prismic/Image';
 import PrismicLink from '@/components/Prismic/Link';
 import PrismicRichText from '@/components/Prismic/RichText';
@@ -143,6 +145,7 @@ import PrismicRichText from '@/components/Prismic/RichText';
 export default {
   name: 'Page',
   components: {
+    PrismicEditButton,
     PrismicImage,
     PrismicLink,
     PrismicRichText
