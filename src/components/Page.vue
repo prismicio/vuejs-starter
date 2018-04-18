@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     getContent (uid) {
-      this.$prismic.getApi(window.prismic.endpoint).then((api) => {
+      this.$prismic.getApi(this.$prismic.endpoint).then((api) => {
         return api.getByUID('page', uid);
       }).then((document) => {
         if (document) {
