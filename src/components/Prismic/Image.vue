@@ -16,8 +16,10 @@ export default {
         return null;
       }
 
+      const altAttr = this.field.alt ? `alt="${this.field.alt}"` : '';
+
       return {
-        template: `<img src="${this.field.url}" alt="${this.field.alt}">`
+        template: `<img src="${this.field.url}" ${altAttr}>`
       };
     }
   }
