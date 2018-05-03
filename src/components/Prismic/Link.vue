@@ -25,19 +25,19 @@ export default {
       const url = prismicDOM.Link.url(this.field, linkResolver);
 
       if (this.field.link_type === 'Document') {
-        template = `
+        template = (`
           <router-link to="${url}">
             <slot/>
           </router-link>
-        `;
+        `);
       } else {
         const target = this.field.target ? `target="'${this.field.target}'" rel="noopener"` : '';
 
-        template = `
+        template = (`
           <a href="${url}" ${target}>
             <slot/>
           </a>
-        `;
+        `);
       }
       return { template };
     }

@@ -21,11 +21,11 @@ export default {
       const providerNameAttr = this.field.provider_name ? `data-oembed-provider="${this.field.provider_name}"` : '';
 
       return {
-        template: `
+        template: (`
           <div ${urlAttr} ${typeAttr} ${providerNameAttr}>
             ${this.field.html}
           </div>
-        `
+        `)
       };
     }
   }

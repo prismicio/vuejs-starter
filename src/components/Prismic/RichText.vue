@@ -33,11 +33,11 @@ export default {
       let template = '';
 
       if (this.isPlain === false) {
-        template = `
+        template = (`
           <div>
             ${prismicDOM.RichText.asHtml(this.field, linkResolver, this.htmlSerializer)}
           </div>
-        `;
+        `);
       } else {
         template = `<span>${prismicDOM.RichText.asText(this.field)}</span>`;
       }
