@@ -17,9 +17,10 @@ export default {
       }
 
       const altAttr = this.field.alt ? `alt="${this.field.alt}"` : '';
+      const copyrightAttr = this.field.copyright ? `copyright="${this.field.copyright}"` : '';
 
       return {
-        template: `<img src="${this.field.url}" ${altAttr}>`
+        template: `<img src="${this.field.url}" ${altAttr} ${copyrightAttr}>`
       };
     }
   }
