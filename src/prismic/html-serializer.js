@@ -1,8 +1,10 @@
 import prismicDOM from 'prismic-dom';
 import linkResolver from '@/prismic/link-resolver';
 
+const Elements = prismicDOM.RichText.Elements;
+
 export default function (type, element, content, children) {
-  if (type === prismicDOM.RichText.Elements.hyperlink) {
+  if (type === Elements.hyperlink) {
     let result = '';
     const url = prismicDOM.Link.url(element.data, linkResolver);
 
@@ -15,5 +17,6 @@ export default function (type, element, content, children) {
     }
     return result;
   }
+
   return null;
 };
