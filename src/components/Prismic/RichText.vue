@@ -4,8 +4,8 @@
 
 <script>
 import prismicDOM from 'prismic-dom';
+import defaultHtmlSerializer from '@/prismic/html-serializer';
 import linkResolver from '@/prismic/link-resolver';
-import htmlSerializer from '@/prismic/html-serializer';
 
 export default {
   name: 'PrismicRichText',
@@ -17,6 +17,11 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    },
+    htmlSerializer: {
+      type: Function,
+      required: false,
+      default: defaultHtmlSerializer
     }
   },
   computed: {
@@ -30,7 +35,7 @@ export default {
       if (this.isPlain === false) {
         template = `
           <div>
-            ${prismicDOM.RichText.asHtml(this.field, linkResolver, htmlSerializer)}
+            ${prismicDOM.RichText.asHtml(this.field, linkResolver, this.htmlSerializer)}
           </div>
         `;
       } else {
