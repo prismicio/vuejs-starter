@@ -137,19 +137,8 @@
 &lt;/template&gt;
 
 &lt;script&gt;
-import PrismicEditButton from '@/components/Prismic/EditButton';
-import PrismicImage from '@/components/Prismic/Image';
-import PrismicLink from '@/components/Prismic/Link';
-import PrismicRichText from '@/components/Prismic/RichText';
-
 export default {
   name: 'Page',
-  components: {
-    PrismicEditButton,
-    PrismicImage,
-    PrismicLink,
-    PrismicRichText
-  },
   data () {
     return {
       documentId: '',

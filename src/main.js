@@ -2,14 +2,21 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import Cookie from 'vue-cookie';
-import PrismicVuePlugin from '@/prismic/vue-plugin';
+import PrismicVue from 'prismic-vue-test';
+import linkResolver from '@/prismic/link-resolver';
+import defaultHtmlSerializer from '@/prismic/default-html-serializer';
 import App from '@/App';
 import router from '@/router';
 
 Vue.config.productionTip = false;
 
 Vue.use(Cookie);
-Vue.use(PrismicVuePlugin, { endpoint: window.prismic.endpoint });
+
+Vue.use(PrismicVue, {
+  endpoint: window.prismic.endpoint,
+  linkResolver,
+  defaultHtmlSerializer
+});
 
 /* eslint-disable no-new */
 new Vue({

@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import NotFound from '@/components/NotFound';
-import PrismicPreview from '@/components/Prismic/Preview';
+import Preview from '@/components/Preview';
 import Tutorial from '@/components/Tutorial';
 
 Vue.use(Router);
@@ -20,8 +20,8 @@ const router = new Router({
     },
     {
       path: '/preview',
-      name: 'prismic-preview',
-      component: PrismicPreview
+      name: 'preview',
+      component: Preview
     },
     {
       path: '/tutorial',

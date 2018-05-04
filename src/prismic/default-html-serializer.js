@@ -4,6 +4,8 @@ import linkResolver from '@/prismic/link-resolver';
 const Elements = prismicDOM.RichText.Elements;
 
 export default function (type, element, content, children) {
+  // Generate links to Prismic's Documents as a router-link component
+  // Present by default, it is recommended to keep this
   if (type === Elements.hyperlink) {
     let result = '';
     const url = prismicDOM.Link.url(element.data, linkResolver);
@@ -17,6 +19,8 @@ export default function (type, element, content, children) {
     return result;
   }
 
+  // If the image is also a link to a Prismic's Document, it will return a router-link component
+  // Present by default, it is recommended to keep this
   if (type === Elements.image) {
     let result = `<img src="${element.url}" alt="${element.alt || ''}" copyright="${element.copyright || ''}">`;
 
@@ -35,5 +39,6 @@ export default function (type, element, content, children) {
     return result;
   }
 
+  // Return null to stick with the default behavior for everything else
   return null;
 };
