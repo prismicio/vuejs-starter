@@ -5,6 +5,11 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import Cookie from 'vue-cookie';
+
+Vue.use(Cookie);
+
 export default {
   name: 'Preview',
   beforeCreate () {

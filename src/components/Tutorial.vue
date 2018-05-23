@@ -4,7 +4,7 @@
     <header>
       <nav>
         <a href="#bootstrap"><strong>Configure a repository</strong></a>
-        <a href="https://prismic.io/docs/javascript/getting-started/integrating-with-an-existing-javascript-project" target="_blank" rel="noopener" class="doc">Documentation<img src="@/assets/img/tutorial/open.svg" alt="Open"></a>
+        <a href="https://prismic.io/docs/vuejs" target="_blank" rel="noopener" class="doc">Documentation<img src="@/assets/img/tutorial/open.svg" alt="Open"></a>
       </nav>
       <div class="wrapper">
         <img src="@/assets/img/tutorial/rocket.svg" alt="Rocket">

@@ -1,6 +1,6 @@
 # Prismic Vue.js Starter
 
-> [Vue.js](https://vuejs.org) starter project for querying content from [Prismic](https://prismic.io)
+> [Vue.js](https://vuejs.org) starter project in order to have content managed on [Prismic](https://prismic.io)
 
 ## How to launch this project in your local environment
 
