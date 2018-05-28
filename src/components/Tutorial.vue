@@ -153,22 +153,20 @@ export default {
   },
   methods: {
     getContent (uid) {
-      this.$prismic.getApi(this.$prismic.endpoint).then((api) =&gt; {
-        return api.getByUID('page', uid);
-      }).then((document) =&gt; {
-        if (document) {
-          this.documentId = document.id;
-          this.fields.title = document.data.title;
-          this.fields.description = document.data.description;
-          this.fields.ctaLink = document.data.cta_link;
-          this.fields.ctaText = document.data.cta_text;
-          this.fields.icon = document.data.icon;
-        } else {
-          this.$router.push({ name: 'not-found' });
-        }
-      }, (err) =&gt; {
-        console.error('Something went wrong:', err);
-      });
+      this.$prismic.getApi(this.$prismic.endpoint)
+        .then((api) =&gt; api.getByUID('page', uid))
+        .then((document) =&gt; {
+          if (document) {
+            this.documentId = document.id;
+            this.fields.title = document.data.title;
+            this.fields.description = document.data.description;
+            this.fields.ctaLink = document.data.cta_link;
+            this.fields.ctaText = document.data.cta_text;
+            this.fields.icon = document.data.icon;
+          } else {
+            this.$router.push({ name: 'not-found' });
+          }
+        });
     }
   },
   created () {
