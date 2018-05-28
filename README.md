@@ -2,6 +2,8 @@
 
 > [Vue.js](https://vuejs.org) starter project in order to have content managed on [Prismic](https://prismic.io)
 
+This project is based on [vuejs-templates/webpack](https://github.com/vuejs-templates/webpack)
+
 ## How to launch this project in your local environment
 
 Run the following commands:
