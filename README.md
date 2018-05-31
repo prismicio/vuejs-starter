@@ -1,6 +1,6 @@
 # Prismic Vue.js Starter
 
-> [Vue.js](https://vuejs.org) starter project with content managed in Prismic [Prismic](https://prismic.io)
+> [Vue.js](https://vuejs.org) starter project with content managed in [Prismic](https://prismic.io)
 
 This project is based on [vuejs-templates/webpack](https://github.com/vuejs-templates/webpack)
 

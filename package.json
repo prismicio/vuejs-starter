@@ -2,6 +2,8 @@
   "name": "prismic-vuejs-starter",
   "version": "0.0.0",
   "description": "Vue.js starter project in order to have content managed on Prismic",
+  "license": "Apache-2.0",
+  "repository": "github:prismicio/vuejs-starter",
   "author": "Prismic",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
