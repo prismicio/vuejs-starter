@@ -1,10 +1,10 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import NotFound from '@/components/NotFound';
-import Preview from '@/components/Preview';
-import Tutorial from '@/components/Tutorial';
+import Vue from 'vue'
+import Router from 'vue-router'
+import NotFound from '@/components/NotFound'
+import Preview from '@/components/Preview'
+import Tutorial from '@/components/Tutorial'
 
-Vue.use(Router);
+Vue.use(Router)
 
 const router = new Router({
   mode: 'history',
@@ -33,6 +33,6 @@ const router = new Router({
       redirect: { name: 'not-found' }
     }
   ]
-});
+})
 
-export default router;
+export default router

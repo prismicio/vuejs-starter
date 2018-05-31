@@ -45,7 +45,7 @@
 &lt;script&gt;
   window.prismic = {
     endpoint: 'https://your-repo-name.prismic.io/api/v2'
-  };
+  }
 &lt;/script&gt;
 </code></pre>
       <p>Next let’s see how to create a Vue component filled with content retrieved from Prismic.</p>
@@ -157,26 +157,26 @@ export default {
         .then((api) =&gt; api.getByUID('page', uid))
         .then((document) =&gt; {
           if (document) {
-            this.documentId = document.id;
-            this.fields.title = document.data.title;
-            this.fields.description = document.data.description;
-            this.fields.ctaLink = document.data.cta_link;
-            this.fields.ctaText = document.data.cta_text;
-            this.fields.icon = document.data.icon;
+            this.documentId = document.id
+            this.fields.title = document.data.title
+            this.fields.description = document.data.description
+            this.fields.ctaLink = document.data.cta_link
+            this.fields.ctaText = document.data.cta_text
+            this.fields.icon = document.data.icon
           } else {
-            this.$router.push({ name: 'not-found' });
+            this.$router.push({ name: 'not-found' })
           }
-        });
+        })
     }
   },
   created () {
-    this.getContent(this.$route.params.uid);
+    this.getContent(this.$route.params.uid)
   },
   beforeRouteUpdate (to, from, next) {
-    this.getContent(to.params.uid);
-    next();
+    this.getContent(to.params.uid)
+    next()
   }
-};
+}
 &lt;/script&gt;
 </code></pre>
 
@@ -186,7 +186,7 @@ export default {
 
 // ...
 
-import Page from '@/components/Page';
+import Page from '@/components/Page'
 
 // ...
 
@@ -217,14 +217,14 @@ import Page from '@/components/Page';
 </template>
 
 <script>
-import Vue from 'vue';
-import VueHighlightJS from 'vue-highlightjs';
+import Vue from 'vue'
+import VueHighlightJS from 'vue-highlightjs'
 
-Vue.use(VueHighlightJS);
+Vue.use(VueHighlightJS)
 
 export default {
   name: 'Tutorial'
-};
+}
 </script>
 
 <style>
