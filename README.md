@@ -1,6 +1,6 @@
 # Prismic Vue.js Starter
 
-> [Vue.js](https://vuejs.org) starter project in order to have content managed on [Prismic](https://prismic.io)
+> [Vue.js](https://vuejs.org) starter project with content managed in Prismic [Prismic](https://prismic.io)
 
 This project is based on [vuejs-templates/webpack](https://github.com/vuejs-templates/webpack)
 
@@ -14,7 +14,7 @@ npm run dev
 ```
 
 Then you can access it at [http://localhost:8080](http://localhost:8080).
-You'll see a tutorial that explain how to create your first Vue component filled with content retrieved from Prismic.
+You'll find a tutorial that explains how to create your first Vue component filled with content retrieved from Prismic.
 
 ## How to remove the tutorial from this project
 
