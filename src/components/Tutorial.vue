@@ -9,7 +9,7 @@
       <div class="wrapper">
         <img src="@/assets/img/tutorial/rocket.svg" alt="Rocket">
         <h1>High five, you deserve it!</h1>
-        <p>Grab a well deserved cup of coffee, you’re just a few steps away from creating a Vue.js component with content managed on Prismic.</p>
+        <p>Grab a well deserved cup of coffee, you’re just a few steps away from creating a Vue.js component with content managed in Prismic.</p>
       </div>
       <div class="hero-curve"></div>
       <div class="flip-flap">

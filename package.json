@@ -1,7 +1,7 @@
 {
   "name": "prismic-vuejs-starter",
   "version": "0.0.0",
-  "description": "Vue.js starter project in order to have content managed on Prismic",
+  "description": "Vue.js starter project with content managed in Prismic",
   "license": "Apache-2.0",
   "repository": "github:prismicio/vuejs-starter",
   "author": "Prismic",
