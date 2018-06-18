@@ -19,9 +19,9 @@ You'll find a tutorial that explains how to create your first Vue component fill
 ## How to remove the tutorial from this project
 
 - Remove Tutorial import and route in src/router/index.js
-- Delete Tutorial component file (rm src/components/Tutorial.vue)
-- Delete Tutorial assets (rm -r src/assets/css/tutorial/ && rm -r src/assets/img/tutorial/)
-- Remove vue-highlightjs dependency (npm uninstall vue-highlightjs)
+- Delete Tutorial component file `rm src/components/Tutorial.vue`
+- Delete Tutorial assets `rm -r src/assets/css/tutorial/ && rm -r src/assets/img/tutorial/`
+- Remove vue-highlightjs dependency `npm uninstall vue-highlightjs`
 
 ## Build Setup
 
