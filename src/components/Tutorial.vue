@@ -124,11 +124,11 @@
   &lt;div&gt;
     &lt;prismic-edit-button :documentId="documentId"/&gt;
     &lt;h1&gt;
-      &lt;prismic-rich-text :field="fields.title" :isPlain="true"/&gt;
+      {{ "\{\{ fields.title \}\}" }}
     &lt;/h1&gt;
     &lt;prismic-rich-text :field="fields.description"/&gt;
     &lt;prismic-link :field="fields.ctaLink"&gt;
-      &lt;prismic-rich-text :field="fields.ctaText" :isPlain="true"/&gt;
+      {{ "\{\{ fields.ctaText \}\}" }}
     &lt;/prismic-link&gt;
     &lt;div&gt;
       &lt;prismic-image :field="fields.icon"/&gt;
@@ -158,10 +158,10 @@ export default {
         .then((document) =&gt; {
           if (document) {
             this.documentId = document.id
-            this.fields.title = document.data.title
+            this.fields.title = this.$prismic.richTextAsPlain(document.data.title)
             this.fields.description = document.data.description
             this.fields.ctaLink = document.data.cta_link
-            this.fields.ctaText = document.data.cta_text
+            this.fields.ctaText = this.$prismic.richTextAsPlain(document.data.cta_text)
             this.fields.icon = document.data.icon
           } else {
             this.$router.push({ name: 'not-found' })
