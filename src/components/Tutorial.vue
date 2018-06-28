@@ -121,17 +121,19 @@
 <pre v-highlightjs class="source-code"><code class="vue">&lt;!-- Create file src/components/Page.vue --&gt;
 
 &lt;template&gt;
-  &lt;div&gt;
+  &lt;div class="wrapper"&gt;
     &lt;prismic-edit-button :documentId="documentId"/&gt;
-    &lt;h1&gt;
+    &lt;h1 class="title"&gt;
       {{ "\{\{ fields.title \}\}" }}
     &lt;/h1&gt;
-    &lt;prismic-rich-text :field="fields.description"/&gt;
-    &lt;prismic-link :field="fields.ctaLink"&gt;
-      {{ "\{\{ fields.ctaText \}\}" }}
-    &lt;/prismic-link&gt;
-    &lt;div&gt;
-      &lt;prismic-image :field="fields.icon"/&gt;
+    &lt;prismic-rich-text :field="fields.description" class="description"/&gt;
+    &lt;div class="cta-wrapper"&gt;
+      &lt;prismic-link :field="fields.ctaLink" class="cta"&gt;
+        {{ "\{\{ fields.ctaText \}\}" }}
+      &lt;/prismic-link&gt;
+    &lt;/div&gt;
+    &lt;div class="icon-wrapper"&gt;
+      &lt;prismic-image :field="fields.icon" class="icon"/&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/template&gt;
@@ -178,6 +180,70 @@ export default {
   }
 }
 &lt;/script&gt;
+
+&lt;style&gt;
+.wrapper {
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px 10px;
+  font-family: Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.title {
+  font-size: 32px;
+}
+
+.description {
+  margin-top: 40px;
+}
+
+.description h2 {
+  font-size: 24px;
+}
+
+.description h2:not(:first-child) {
+  margin-top: 20px;
+}
+
+.description p {
+  line-height: 1.5;
+}
+
+.description p:not(:first-child) {
+  margin-top: 10px;
+}
+
+.description a {
+  color: #404e9f;
+}
+
+.description a:hover {
+  text-decoration: underline;
+}
+
+.cta-wrapper {
+  margin-top: 40px;
+}
+
+.cta {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  padding: 0 20px;
+  background-color: #404e9f;
+  color: white;
+}
+
+.icon-wrapper {
+  margin-top: 40px;
+}
+
+.icon {
+  max-width: 100%;
+}
+&lt;/style&gt;
 </code></pre>
 
       <h4>Specify a route for the Page component</h4>
