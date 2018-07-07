@@ -6,9 +6,9 @@
 
 <script>
 import Vue from 'vue'
-import Cookie from 'vue-cookie'
+import VueCookie from 'vue-cookie'
 
-Vue.use(Cookie)
+Vue.use(VueCookie)
 
 export default {
   name: 'Preview',
