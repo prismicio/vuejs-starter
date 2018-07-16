@@ -155,8 +155,7 @@ export default {
   },
   methods: {
     getContent (uid) {
-      this.$prismic.getApi(this.$prismic.endpoint)
-        .then((api) =&gt; api.getByUID('page', uid))
+      this.$prismic.api.getByUID('page', uid)
         .then((document) =&gt; {
           if (document) {
             this.documentId = document.id
