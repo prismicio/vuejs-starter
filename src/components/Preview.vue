@@ -15,7 +15,7 @@ export default {
   beforeCreate () {
     const previewToken = this.$route.query.token
 
-    this.$prismic.api.previewSession(previewToken, this.$prismic.linkResolver, '/')
+    this.$prismic.client.previewSession(previewToken, this.$prismic.linkResolver, '/')
       .then((url) => {
         this.$cookie.set(this.$prismic.previewCookie, previewToken, { expires: '30m' })
         window.location.replace(url)
