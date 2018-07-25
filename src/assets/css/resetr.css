@@ -14,12 +14,12 @@
 
 html {
   box-sizing: border-box;
-  background: white; /* Addition */
-  color: black; /* Addition */
-  font-family: sans-serif; /* Addition */
-  font-size: 16px; /* Addition */
-  line-height: 1.15; /* Addition */
-  -ms-text-size-adjust: 100%; /* Addition */
+  background: white;
+  color: black;
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%; /* iOS 8+ */
 }
 
@@ -38,7 +38,7 @@ html {
 * {
   padding: 0; /* Reset `padding` and `margin` of all elements */
   margin: 0;
-  font: inherit; /* Addition */
+  font: inherit;
 }
 
 /*  # =================================================================
@@ -52,7 +52,7 @@ audio:not([controls]) {
 }
 
 hr {
-  height: 0; /* Addition */
+  height: 0;
   overflow: visible; /* Show the overflow in Edge and IE */
 }
 
@@ -91,15 +91,15 @@ template {
 }
 
 abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
 }
 
 a {
   background-color: transparent; /* Remove the gray background on active links in IE 10 */
-  color: inherit; /* Addition */
-  text-decoration: none; /* Addition */
+  color: inherit;
+  text-decoration: none;
   -webkit-text-decoration-skip: objects; /* Remove gaps in links underline in iOS 8+ and Safari 8+ */
 }
 
@@ -283,8 +283,8 @@ svg:not(:root) {
   overflow: hidden; /* Internet Explorer 11- */
 }
 
-img, /* Addition */
-svg, /* Addition */
+img,
+svg,
 audio,
 canvas,
 progress,
