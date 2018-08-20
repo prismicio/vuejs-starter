@@ -2,15 +2,13 @@
 
 > [Vue.js](https://vuejs.org) starter project with content managed in [Prismic](https://prismic.io)
 
-This project is based on [vuejs-templates/webpack](https://github.com/vuejs-templates/webpack)
-
 ## How to launch this project in your local environment
 
 Run the following commands:
 
 ``` bash
 npm install
-npm run dev
+npm run serve
 ```
 
 Then you can access it at [http://localhost:8080](http://localhost:8080).
@@ -19,27 +17,29 @@ You'll find a tutorial that explains how to create your first Vue component fill
 ## How to remove the tutorial from this project
 
 - Remove Tutorial import and route in src/router/index.js
-- Delete Tutorial component file `rm src/components/Tutorial.vue`
+- Delete Tutorial component file `rm src/views/Tutorial.vue`
 - Delete Tutorial assets `rm -r src/assets/css/tutorial/ && rm -r src/assets/img/tutorial/`
 - Remove vue-highlightjs dependency `npm uninstall vue-highlightjs`
 
-## Build Setup
-
+## Project setup
 ``` bash
-# install dependencies
 npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### Compiles and hot-reloads for development
+``` bash
+npm run serve
+```
+
+### Compiles and minifies for production
+``` bash
+npm run build
+```
+
+### Lints and fixes files
+``` bash
+npm run lint
+```
 
 ## License
 
