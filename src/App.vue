@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import FooterPrismic from '@/components/FooterPrismic'
+import FooterPrismic from './components/FooterPrismic.vue'
 
 export default {
   name: 'App',

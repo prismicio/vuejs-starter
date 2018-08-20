@@ -1,5 +1,10 @@
+/**
+ * To learn more about HTML Serializer check out the Prismic documentation
+ * https://prismic.io/docs/vuejs/beyond-the-api/html-serializer
+ */
+
 import prismicDOM from 'prismic-dom'
-import linkResolver from '@/prismic/link-resolver'
+import linkResolver from './link-resolver'
 
 const Elements = prismicDOM.RichText.Elements
 
